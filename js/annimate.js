@@ -1,40 +1,31 @@
 var endFlipFoxkeh = function(){
-	/aaa/
-	var foxkeh = document.querySelector("#slidein-foxkeh img");
-	/aaa/
+	var foxkeh= document.querySelector("#slidein-foxkeh img");
 	foxkeh.removeEventListener("animationend", endFlipFoxkeh);
-	/aaa/
-
-	foxkeh.setAttribute("class", "");
-	/aaa/
+	foxkeh.setAttribute("class", "");	
 };
-
-var endSlideinFoxkehAndStartFlipFoxkeh = function(){
-	/aaa/
-	var foxkeh = document.querySelector("#slidein-foxkeh img");
-	/aaa/
-
-	foxkeh.removeEventListener("animationend", endSlideinFoxkehAndStartFlipFoxkeh);
-	/aaa/
-	foxkeh.addEventListener("animationend", endFlipFoxkeh);
-	/aaa/
-
-	foxkeh.setAttribute("class", "flip");
-	/aaa/
+/関数endFlipFoxkehを、id属性がslidein-foxkeh imgの要素を探して
+関数foxkehと定義し、foxkehがanimationendされたらイベントendFlipFoxkehを
+取り除き、foxkehのクラス属性を""とするというように定義する/
+var endSlideinFoxkehAndStartFlipFoxkeh = function(){	
+	var foxkeh = document.querySelector("#slidein-foxkeh img");	
+	foxkeh.removeEventListener("animationend", endSlideinFoxkehAndStartFlipFoxkeh);	
+	foxkeh.addEventListener("animationend", endFlipFoxkeh);	
+	foxkeh.setAttribute("class", "flip");	
 };
-
-var startSlideinFoxkeh = function(){
-	/aaa/
-	var foxkeh = document.querySelector("#slidein-foxkeh img");
-	/aaa/
-	foxkeh.setAttribute("class", "slidein");
-	/aaa/
-
-	foxkeh.addEventListener("animationend", endSlideinFoxkehAndStartFlipFoxkeh);
-	/aaa/
+/関数endSlideinFoxkehAndStartFlipFoxkehを、id属性がslidein-foxkeh imgの要素を探して
+関数foxkehと定義し、foxkehがanimationendされたらイベントendSlideinFoxkehAndStartFlipFoxkehを
+取り除き、foxkehがanimationendされたらイベントendFlipFoxkehを
+追加し、foxkehのクラス属性を"flip"とするというように定義する/
+var startSlideinFoxkeh = function(){	
+	var foxkeh = document.querySelector("#slidein-foxkeh img");	
+	foxkeh.setAttribute("class", "slidein");	
+	foxkeh.addEventListener("animationend", endSlideinFoxkehAndStartFlipFoxkeh);	
 };
-
+/関数startSlideinFoxkehを、id属性がslidein-foxkeh imgの要素を探して
+関数foxkehと定義し、foxkehのクラス属性を"slidein"とし、
+foxkehがanimationendされたらイベントendSlideinFoxkehAndStartFlipFoxkehを
+追加するように定義する/
 var slideinFoxkehButton = document.querySelector("#slidein-foxkeh button");
-/aaa/
+/id属性がslidein-foxkeh buttonの要素を探して関数slideinFoxkehButtonと定義する/
 slideinFoxkehButton.addEventListener("click", startSlideinFoxkeh);
-/aaa/
+/slideinFoxkehButtonがclickされたらイベント startSlideinFoxkehを追加する/
